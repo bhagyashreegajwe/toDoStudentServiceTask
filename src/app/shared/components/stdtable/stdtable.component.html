@@ -1,0 +1,29 @@
+
+<table class="table table-bordered mt-4" *ngIf="stdArr.length > 0; else noTable">
+    <thead>
+        <tr>
+            <th>Sr.No.</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Contact</th>
+            <th>Email</th>
+            <th>Remove</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let std of stdArr; let i = index">
+            <td>{{i+1}}</td>
+            <td>{{std.fname}}</td>
+            <td>{{std.lname}}</td>
+            <td>{{std.contact}}</td>
+            <td>{{std.email}}</td>
+            <td>
+                <div class="btn btn-outline-danger btn-sm" (click)="onDelete(std.id)">Delete</div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<ng-template #noTable>
+    <p class="alert alert-warning mt-2">No Table Data Available</p>
+</ng-template>
